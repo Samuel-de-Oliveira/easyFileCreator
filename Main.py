@@ -1,10 +1,20 @@
-#--*- Easy File Creator (EFC) -*--#
-#                                 #
-#--*---------------------------*--#
+#--*--------- Easy File Creator (EFC) ---------*--#
+#                                                 #
+# This is a free software, thats mean you can     #
+# distibute, run and edit it freely, but you need #
+# to follow the MIT license guideless.            #
+#                                                 #
+# Repository:                                     #
+# https://github.com/Samuel-de-Oliveira/easyFileCreator
+# License:       MIT                              #
+# Created by:    Samuel de Oliveira               #
+# Contribuitors: None                             #
+#--*-------------------------------------------*--#
 
-import os
+# Imports
 import sys
-import json
+
+# All functions is in lib/__init__.py file
 from lib import *
 
 # If it hasn't no arguments
@@ -24,4 +34,4 @@ if __name__ == "__main__":
     elif sys.argv[1] in ("remove", "-R"): removeTemplate(sys.argv[2]) # Remove a template
 
     # In case of user digit someting wrong
-    else: print("Sorry, this command doesn't exist. digit \'neo-git -?\' for commands") 
+    else: print("Sorry, this command doesn't exist. digit \'efc -?\' for commands") 

@@ -23,7 +23,14 @@ elif os.name in ("nt", "dos"):
 # Help
 def helpMessage():
     print("""
-There will come a help message...
+\tEasy File Creator (EFC) usage
+\tefc [Command...] (arguments...)
+
+\033[1mfile (-f):\033[m Create a file (efc file [File name] [Language])
+\033[1mproject (-P):\033[m Crate a project folder (efc project [Folder name] [Language])
+
+\033[1mversion (-v):\033[m show version (efc version)
+\033[1mhelp (-?):\033[m show this help message (efc help)
           """)
 
 
@@ -36,7 +43,7 @@ def createFile(fileName, Language):
     # And then copy the template file and rename to name you've choosed
     try:
         shutil.copy(f"{configPath}/langs/{Language}/{config['file']}",
-                    f'{fileName}{config["extencion"]}')
+                    f'{fileName}{config["extension"]}')
     except: print('The language doesn\'t exist!')
 
 # Create a project
