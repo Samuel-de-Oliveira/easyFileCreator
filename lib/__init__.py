@@ -34,9 +34,10 @@ def createFile(fileName, Language):
         config = json.loads(file.read())
 
     # And then copy the template file and rename to name you've choosed
-    shutil.copy(f"{configPath}/langs/{Language}/{config['file']}",
-                f'{fileName}{config["extencion"]}')
-
+    try:
+        shutil.copy(f"{configPath}/langs/{Language}/{config['file']}",
+                    f'{fileName}{config["extencion"]}')
+    except: print('The language doesn\'t exist!')
 
 # Create a project
 def createProject(projectName, Language):
@@ -45,8 +46,10 @@ def createProject(projectName, Language):
         config = json.loads(file.read())
 
     # And then copy the template project and rename to name you've choosed
-    shutil.copy(f"{configPath}langs/{Language}/project/",
-                f'{projectName}')
+    try:
+        shutil.copytree(f"{configPath}langs/{Language}/project/",
+                        f'{projectName}')
+    except: print('The language doesn\'t exist')
 
 
 # Append template
