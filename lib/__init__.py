@@ -1,33 +1,66 @@
+# Import area
 import os
 import sys
 import shutil
 import json
 
-Version = '2.0'
+# Variable of version
+Version = '1.0'
 
-with open(f'{configPath}/langs/{Language}/config.json', 'r') as file:
-        config = json.loads(file.read())
-
+## Define the paths of software in each OS.
+# Linux
 if os.name in ("linux", "posix"):
-    programPath = '/usr/share/neo-git/'
-    configPath  = f'/home/{os.getlogin()}/.neo-git/'
+    programPath = '/usr/share/efc/'
+    configPath  = f'/home/{os.getlogin()}/.efc/'
 
+# Windows
 elif os.name in ("nt", "dos"):
-    programPath = 'C:\\system32\\neo-git'
+    # TODO: rework this in the windows OS
+    programPath = 'C:\\system32\\efc'
     configPath  = 'will be there...'
 
 
+# Help
 def helpMessage():
     print("""
 There will come a help message...
           """)
 
 
+# Create a file
 def createFile(fileName, Language):
+    # Open config file of Template
+    with open(f'{configPath}/langs/{Language}/config.json', 'r') as file:
+        config = json.loads(file.read())
+
+    # And then copy the template file and rename to name you've choosed
     shutil.copy(f"{configPath}/langs/{Language}/{config['file']}",
                 f'{fileName}{config["extencion"]}')
 
 
+# Create a project
 def createProject(projectName, Language):
-    shutil.copy(f"{configPath}/langs/{Language}/project/",
+    # Open config file of Template
+    with open(f'{configPath}/langs/{Language}/config.json', 'r') as file:
+        config = json.loads(file.read())
+
+    # And then copy the template project and rename to name you've choosed
+    shutil.copy(f"{configPath}langs/{Language}/project/",
                 f'{projectName}')
+
+
+# Append template
+def appendTemplate(Dir):
+    try:
+        if os.path.exists(f'{Dir}/config.json'):
+            shutil.copy(f"{Dir}",
+                        f"{configPath}/langs/")
+        else: raise FileNotFoundError
+
+    except: print("Directory not found!")
+
+
+# Remove template
+def removeTemplate(Language):
+    try: shutil.rmtree(f"{configPath}/langs/{Language}")
+    except: print('This template doesn\'t exist!')
