@@ -46,6 +46,7 @@ def createFile(fileName, Language):
                     f'{fileName}{config["extension"]}')
     except: print('The language doesn\'t exist!')
 
+
 # Create a project
 def createProject(projectName, Language):
     # Open config file of Template
@@ -61,9 +62,10 @@ def createProject(projectName, Language):
 
 # Append template
 def appendTemplate(Dir):
+    # TODO: I guess this part is broken for any reason.
     try:
         if os.path.exists(f'{Dir}/config.json'):
-            shutil.copy(f"{Dir}",
+            shutil.copy(f"./{Dir}",
                         f"{configPath}/langs/")
         else: raise FileNotFoundError
 
