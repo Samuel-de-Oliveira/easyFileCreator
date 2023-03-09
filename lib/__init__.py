@@ -44,7 +44,10 @@ def createFile(fileName, Language):
     try:
         shutil.copy(f"{configPath}/langs/{Language}/{config['file']}",
                     f'{fileName}{config["extension"]}')
-    except: print('The language doesn\'t exist!')
+    except FileNotFoundError: print('The language doesn\'t exist!')
+    except Exception as Except:
+        print(f"An error occurred, the error name is {Except}."
+               "Please tell this with the developer!")
 
 
 # Create a project
@@ -57,22 +60,31 @@ def createProject(projectName, Language):
     try:
         shutil.copytree(f"{configPath}langs/{Language}/project/",
                         f'{projectName}')
-    except: print('The language doesn\'t exist')
+    except FileNotFoundError: print('The language doesn\'t exist')
+    except Exception as Except:
+        print(f"An error occurred, the error name is {Except}."
+               "Please tell this with the developer!")
 
 
 # Append template
 def appendTemplate(Dir):
-    # TODO: I guess this part is broken for any reason.
+    # FIXME: The software cant append any template for any reason, need fix this urgent.
     try:
         if os.path.exists(f'{Dir}/config.json'):
             shutil.copy(f"./{Dir}",
                         f"{configPath}/langs/")
         else: raise FileNotFoundError
 
-    except: print("Directory not found!")
+    except FileNotFoundError: print("Directory not found!")
+    except Exception as Except:
+        print(f"An error occurred, the error name is {Except}."
+               "Please tell this with the developer!")
 
 
 # Remove template
 def removeTemplate(Language):
     try: shutil.rmtree(f"{configPath}/langs/{Language}")
-    except: print('This template doesn\'t exist!')
+    except FileNotFoundError: print('This template doesn\'t exist!')
+    except Exception as Except:
+        print(f"An error occurred, the error name is {Except}."
+               "Please tell this with the developer!")
