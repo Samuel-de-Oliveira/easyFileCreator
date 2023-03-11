@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-
 python /usr/share/efc/Main.py $*

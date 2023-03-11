@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
-#-*-------------- The installer for GNU/Linux --------------*-#
 
 if [ $USER == "root" ]; then
 	echo "No root!"
-	exit 1
+	exit
 fi
-
 
 clear
 echo -e "\033[1mInstall program.\033[m"
 echo -e "\nVersion of Program: \033[33m2.0\033[m\nAre you sure you want to install? [Y/n]:"; read num
 clear
-
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
