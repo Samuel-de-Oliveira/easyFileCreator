@@ -22,16 +22,21 @@ if len(sys.argv) <= 1:
     helpMessage()
     exit()
 
-
 if __name__ == "__main__":
     try:
         # Arguments:
         if sys.argv[1] in ("help", "-?"): helpMessage() # Help
         elif sys.argv[1] in ("file", "-f"): createFile(sys.argv[2], sys.argv[3]) # Create file
         elif sys.argv[1] in ("project", "-P"): createProject(sys.argv[2], sys.argv[3]) # Crate project
-        elif sys.argv[1] in ("version", "-v"): print(f'Version: {Version}') # Show version
         elif sys.argv[1] in ("append", "-a"): appendTemplate(sys.argv[2]) # Append a template
         elif sys.argv[1] in ("remove", "-R"): removeTemplate(sys.argv[2]) # Remove a template
+
+
+        # Show version info
+        elif sys.argv[1] in ("version", "-v"):
+            print(f'Version: {Version}\n'
+                   'This project is created by Samuel de Oliveira (all right reserved)\n'
+                   'Visit the project\'s repository: https://github.com/Samuel-de-Oliveira/easyFileCreator.')
 
         # In case of user digit someting wrong
         else: print("Sorry, this command doesn't exist. digit \'efc -?\' for commands") 
