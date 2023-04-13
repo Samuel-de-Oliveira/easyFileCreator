@@ -40,11 +40,13 @@ if __name__ == "__main__":
 
         # In case of user digit someting wrong
         else: print("Sorry, this command doesn't exist. digit \'efc -?\' for commands") 
-
+    
+    # In case of dont have enough arguments
     except IndexError:
         print('Missing arguments...\n'
               'Type "efc -?" for details of the commands')
-
+    
+    # In case of a unknown error happens
     except Exception as Except:
-        print(f"An error has accured, the name of this error is {Except}"
+        print(f"An error has accured, the name of this error is {Except}\n"
                "Please tell this to the software developer")

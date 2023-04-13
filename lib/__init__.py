@@ -56,15 +56,17 @@ def createProject(projectName, Language):
     with open(f'{configPath}/langs/{Language}/config.json', 'r') as file:
         config = json.loads(file.read())
 
-    # And then copy the template project and rename to name you've choosed
-    try:
-        shutil.copytree(f"{configPath}langs/{Language}/project/",
-                        f'{projectName}')
-    except FileNotFoundError: print('The language doesn\'t exist')
-    except Exception as Except:
-        print(f"An error occurred, the error name is {Except}."
-               "Please tell this with the developer!")
-
+    # Verify if the template have a project
+    if config['project']:
+        # And then copy the template project and rename to name you've choosed
+        try:
+            shutil.copytree(f"{configPath}langs/{Language}/project/",
+                            f'{projectName}')
+        except FileNotFoundError: print('The language doesn\'t exist')
+        except Exception as Except:
+            print(f"An error occurred, the error name is {Except}."
+                   "Please tell this with the developer!")
+    else: print('No projects here sir...')
 
 # Append template
 def appendTemplate(Dir):
