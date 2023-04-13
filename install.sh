@@ -18,7 +18,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	sudo cp -r ./* /usr/share/efc/
 
 	mkdir -p ~/.efc/
-	cp -r langs/ ~/.efc/langs/
+	cp -r langs/ ~/.efc/
 
 	sudo cp efc /usr/bin/
 	
