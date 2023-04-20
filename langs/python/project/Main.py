@@ -1,4 +1,5 @@
-import library
+from library import hello
+world = hello()
 
 if __name__ == "__main__":
-    hello()
+    world.show()

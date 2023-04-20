@@ -1,4 +1,4 @@
 local lib = require("library")
 local io  = require("io")
 
-lib.hello()
+lib.show()
