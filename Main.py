@@ -30,6 +30,7 @@ if __name__ == "__main__":
         elif sys.argv[1] in ("project", "-P"): createProject(sys.argv[2], sys.argv[3]) # Crate project
         elif sys.argv[1] in ("append", "-a"): appendTemplate(sys.argv[2]) # Append a template
         elif sys.argv[1] in ("remove", "-R"): removeTemplate(sys.argv[2]) # Remove a template
+        elif sys.argv[1] in ("list", "-l"): showList() # Show list of templates
 
 
         # Show version info

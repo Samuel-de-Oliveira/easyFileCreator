@@ -28,6 +28,7 @@ def helpMessage():
 
 \033[1mfile (-f):\033[m Create a file (efc file [File name] [Language])
 \033[1mproject (-P):\033[m Crate a project folder (efc project [Folder name] [Language])
+\033[1mlist (-l):\033[m Show all templates saved (efc list)
 
 \033[1mversion (-v):\033[m show version (efc version)
 \033[1mhelp (-?):\033[m show this help message (efc help)
@@ -81,6 +82,17 @@ def appendTemplate(Dir):
     except Exception as Except:
         print(f"An error occurred, the error name is {Except}."
                "Please tell this with the developer!")
+
+
+def showList():
+    # Print all templates
+    langsList = os.listdir(f"{configPath}/langs/")
+    print("Your language templates:")
+    for lang in langsList:
+        print(lang, end='  ')
+    
+    # New line
+    print()
 
 
 # Remove template
