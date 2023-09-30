@@ -45,9 +45,12 @@ def createFile(fileName, Language):
     try:
         shutil.copy(f"{configPath}/langs/{Language}/{config['file']}",
                     f'{fileName}{config["extension"]}')
-    except FileNotFoundError: print('The language doesn\'t exist!')
+    except FileNotFoundError: print('The language doesn\'t exists!')
+    except FileExistsError:
+        print(f'The file \033[1m{fileName}\033[m already exists, '
+               'then delete this file or choose a new name for it.')
     except Exception as Except:
-        print(f"An error occurred, the error name is {Except}."
+        print(f"An error occurred, the error name is {Except}. "
                "Please tell this with the developer!")
 
 
@@ -63,9 +66,12 @@ def createProject(projectName, Language):
         try:
             shutil.copytree(f"{configPath}langs/{Language}/project/",
                             f'{projectName}')
-        except FileNotFoundError: print('The language doesn\'t exist')
+        except FileNotFoundError: print('The language doesn\'t exists')
+        except FileExistsError:
+            print(f'The directory \033[1m{projectName}\033[m already exists, '
+                   'then delete this directory or choose a new name for it.')
         except Exception as Except:
-            print(f"An error occurred, the error name is {Except}."
+            print(f"An error occurred, the error name is {Except}. "
                    "Please tell this with the developer!")
     else: print('No projects here sir...')
 
@@ -80,7 +86,7 @@ def appendTemplate(Dir):
 
     except FileNotFoundError: print("Directory not found!")
     except Exception as Except:
-        print(f"An error occurred, the error name is {Except}."
+        print(f"An error occurred, the error name is {Except}. "
                "Please tell this with the developer!")
 
 
@@ -100,5 +106,5 @@ def removeTemplate(Language):
     try: shutil.rmtree(f"{configPath}/langs/{Language}")
     except FileNotFoundError: print('This template doesn\'t exist!')
     except Exception as Except:
-        print(f"An error occurred, the error name is {Except}."
+        print(f"An error occurred, the error name is {Except}. "
                "Please tell this with the developer!")
