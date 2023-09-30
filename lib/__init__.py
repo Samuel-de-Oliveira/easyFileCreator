@@ -108,3 +108,6 @@ def removeTemplate(Language):
     except Exception as Except:
         print(f"An error occurred, the error name is {Except}. "
                "Please tell this with the developer!")
+
+
+if __name__ == "__main__": print("Please, open the \'Main.py\' file.")
