@@ -1,9 +1,13 @@
 #ifndef LIBRARY_HPP
 #define LIBRARY_HPP
+
 #include <iostream>
+#include <string>
+
+std::string string {"Hello, world!"};
 
 void hello( void ) {
-	std::cout << "Hello, world!" << '\n';
+	std::cout << string << '\n';
 }
 
 #endif

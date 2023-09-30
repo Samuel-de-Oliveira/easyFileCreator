@@ -3,8 +3,10 @@
 
 #include <stdio.h>
 
+char string[12] = "Hello world!";
+
 void hello( void ) {
-	printf("Hello, world!\n");
+	printf("%s\n", string);
 }
 
 #endif
