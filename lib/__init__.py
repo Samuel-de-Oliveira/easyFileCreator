@@ -43,8 +43,12 @@ def createFile(fileName, Language):
 
     # And then copy the template file and rename to name you've choosed
     try:
+        # Verify if the file exists, to avoid replace a important file.
+        if os.path.exists(f'{fileName}{config["extension"]}'): raise FileExistsError
+
         shutil.copy(f"{configPath}/langs/{Language}/{config['file']}",
                     f'{fileName}{config["extension"]}')
+
     except FileNotFoundError: print('The language doesn\'t exists!')
     except FileExistsError:
         print(f'The file \033[1m{fileName}\033[m already exists, '
@@ -66,6 +70,7 @@ def createProject(projectName, Language):
         try:
             shutil.copytree(f"{configPath}langs/{Language}/project/",
                             f'{projectName}')
+
         except FileNotFoundError: print('The language doesn\'t exists')
         except FileExistsError:
             print(f'The directory \033[1m{projectName}\033[m already exists, '
