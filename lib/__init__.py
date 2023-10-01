@@ -5,7 +5,7 @@ import shutil
 import json
 
 # Variable of version
-Version = '1.0'
+Version = '1.0.1'
 
 ## Define the paths of software in each OS.
 # Linux
@@ -18,6 +18,10 @@ elif os.name in ("nt", "dos"):
     # TODO: rework this in the windows OS
     programPath = 'C:\\system32\\efc'
     configPath  = 'will be there...'
+
+    # For while it doesn't work for Windows yet :/
+    print('This software doesn\'t work for Windows yet')
+    exit()
 
 
 # Help
