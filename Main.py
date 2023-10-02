@@ -22,6 +22,8 @@ if len(sys.argv) <= 1:
     helpMessage()
     exit()
 
+
+## Main code ##
 if __name__ == "__main__":
     try:
         # Arguments:
@@ -35,19 +37,20 @@ if __name__ == "__main__":
 
         # Show version info
         elif sys.argv[1] in ("version", "-v"):
-            print(f'Version: {Version}\n'
+            print(f'Version: \033[1;32m{Version}\033[m\n'
                    'This project is created by Samuel de Oliveira (all right reserved)\n'
-                   'Visit the project\'s repository: https://github.com/Samuel-de-Oliveira/easyFileCreator.')
+                   'Visit the project\'s repository: \033[34mhttps://github.com/Samuel-de-Oliveira/easyFileCreator.\033[m')
 
         # In case of user digit someting wrong
-        else: print("Sorry, this command doesn't exist. digit \'efc -?\' for commands") 
-    
+        else: print("Sorry, this command doesn't exist. digit \033[1;42mefc -?\033[m for commands") 
+   
+
     # In case of dont have enough arguments
     except IndexError:
-        print('Missing arguments...\n'
-              'Type "efc -?" for details of the commands')
+        print('\033[1mMissing arguments...\033[m\n'
+              'Type \033[1;42mefc -?\033[m for details of the commands')
     
     # In case of a unknown error happens
     except Exception as Except:
-        print(f"An error has accured, the name of this error is {Except}\n"
+        print(f"\033[1;31mAn error has accured, the name of this error is {Except}\033[m\n"
                "Please tell this to the software developer")

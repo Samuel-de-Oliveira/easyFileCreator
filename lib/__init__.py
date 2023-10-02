@@ -53,12 +53,12 @@ def createFile(fileName, Language):
         shutil.copy(f"{configPath}/langs/{Language}/{config['file']}",
                     f'{fileName}{config["extension"]}')
 
-    except FileNotFoundError: print('The language doesn\'t exists!')
+    except FileNotFoundError: print('\033[1;31mThe language doesn\'t exists!\033[m')
     except FileExistsError:
         print(f'The file \033[1m{fileName}\033[m already exists, '
                'then delete this file or choose a new name for it.')
     except Exception as Except:
-        print(f"An error occurred, the error name is {Except}. "
+        print(f"\033[31mAn error occurred, the error name is {Except}.\033[m "
                "Please tell this with the developer!")
 
 
@@ -80,9 +80,9 @@ def createProject(projectName, Language):
             print(f'The directory \033[1m{projectName}\033[m already exists, '
                    'then delete this directory or choose a new name for it.')
         except Exception as Except:
-            print(f"An error occurred, the error name is {Except}. "
+            print(f"\033[1;31mAn error occurred, the error name is {Except}. \033[m"
                    "Please tell this with the developer!")
-    else: print('No projects here sir...')
+    else: print('there\'s no projects for this language...')
 
 # Append template
 def appendTemplate(Dir):
@@ -95,7 +95,7 @@ def appendTemplate(Dir):
 
     except FileNotFoundError: print("Directory not found!")
     except Exception as Except:
-        print(f"An error occurred, the error name is {Except}. "
+        print(f"\033[1;31mAn error occurred, the error name is {Except}. \033[m"
                "Please tell this with the developer!")
 
 
@@ -104,7 +104,7 @@ def showList():
     langsList = os.listdir(f"{configPath}/langs/")
     print("Your language templates:")
     for lang in langsList:
-        print(lang, end='  ')
+        print(f'\033[1m{lang}\033[m', end='  ')
     
     # New line
     print()
@@ -115,7 +115,7 @@ def removeTemplate(Language):
     try: shutil.rmtree(f"{configPath}/langs/{Language}")
     except FileNotFoundError: print('This template doesn\'t exist!')
     except Exception as Except:
-        print(f"An error occurred, the error name is {Except}. "
+        print(f"\033[1;31mAn error occurred, the error name is {Except}. \033[m"
                "Please tell this with the developer!")
 
 
