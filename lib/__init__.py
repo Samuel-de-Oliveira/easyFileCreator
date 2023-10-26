@@ -5,7 +5,7 @@ import shutil
 import json
 
 # Variable of version
-Version = '1.0.1'
+__version__ = '1.0.1'
 
 ## Define the paths of software in each OS.
 # Linux
