@@ -1,1 +1,2 @@
-alert("Hello, world!")
+window.alert("Hello, world!")
+console.log("Hello, world!")
