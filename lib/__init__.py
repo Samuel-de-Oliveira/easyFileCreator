@@ -13,6 +13,7 @@ if os.name in ("linux", "posix"):
     programPath = '/usr/share/efc/'
     configPath  = f'/home/{os.getlogin()}/.efc/'
 
+
 # Windows
 elif os.name in ("nt", "dos"):
     # TODO: rework this in the windows OS
@@ -22,6 +23,11 @@ elif os.name in ("nt", "dos"):
     # For while it doesn't work for Windows yet :/
     print('This software doesn\'t work for Windows yet')
     exit()
+
+
+class Config():
+    def __ini__(self) -> None:
+        pass
 
 
 # Help
