@@ -9,16 +9,26 @@ local args = {...}
 
 -- Program structure
 if args[1] then
-	for i,v in ipairs(args) do
+	for i, v in ipairs(args) do
+		-- List
+		if args[i] == '-l' or args == '--list' then
+			lib.list()
+			os.exit()
+		end
+
 		-- Help message
-		if args[i] == '-h' then
+		if args[i] == '-?' or args[i] == '--help' then
 			lib.help()
 			os.exit()
 		end
 
 		-- Version
-		if args[i] == '-v' then
-			io.write('Version: ' .. lib.version .. '\n')
+		if args[i] == '-v' or args[i] == '--version' then
+			io.write(
+			'Version: ' .. lib.version .. '\n' ..
+			'Software crated by: Samuel de Oliveira (all rigths reserved)\n'
+			)
+			os.exit()
 		end
 	end
 else
