@@ -1,3 +1,6 @@
+import os
+import sys
+
 from library import hello
 world = hello()
 
