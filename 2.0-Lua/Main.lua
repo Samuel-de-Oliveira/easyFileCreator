@@ -33,7 +33,7 @@ if args[1] then
 		-- Version
 		if args[i] == '-v' or args[i] == '--version' then
 			io.write(
-			'Version: ' .. lib.version .. '\n' ..
+			'Version: ' .. lib.VERSION .. '\n' ..
 			'Software crated by: Samuel de Oliveira (all rigths reserved)\n'
 			)
 			os.exit()
