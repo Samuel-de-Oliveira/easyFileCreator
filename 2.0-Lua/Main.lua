@@ -16,6 +16,14 @@ if args[1] then
 			os.exit()
 		end
 
+		-- Crate file
+		if args[i] == '-f' or args == '--file' then
+			lib.createFile(
+				args[i + 1],
+				args[i + 2]
+			)
+		end
+
 		-- Help message
 		if args[i] == '-?' or args[i] == '--help' then
 			lib.help()

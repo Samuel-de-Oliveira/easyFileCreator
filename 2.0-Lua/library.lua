@@ -4,7 +4,8 @@ local os = require("os")
 
 -- Constants and variables
 local library = {
-	version = "2.0"
+	VERSION = '2.0'
+   PATH    = '~/.efc/'
 }
 
 ---- Functions ----
@@ -14,6 +15,8 @@ function library.help()
 	io.write(
 	'Usage: \"efc [command] [arguments]\"\n' ..
 	'-l: Show the list of templates and exit.\n' ..
+   '-f: Create a new file [efc -f "FileName" "Language"]\n' ..
+   '\n' ..
 	'-v: Show version and exit.\n' ..
 	'-h: Show this message and exit.\n'
 	)
@@ -27,5 +30,20 @@ function library.list()
 	end
 	io.write('\n') -- Break line
 end
+
+
+function library.createFile(fileName, Language)
+	-- Error treatment
+	if not fileName or not Language then
+		io.write('There is missing some arguments...\n' ..
+               'Plase digit "efc -?" for help.\n')
+		os.exit()
+	end
+
+	-- Copy template files
+	io.write(fileName .. '\n')
+	io.write(Language .. '\n')
+end
+
 
 return library
