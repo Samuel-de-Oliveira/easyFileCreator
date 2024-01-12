@@ -1,10 +1,11 @@
 -- Lua version of EFC Test
 
 -- Requires (To find the fuctions go to: 'library.lua')
-local lib  = require("library")
-local io   = require("io")
-local os   = require("os")
-local args = {...}
+local lib   = require("library")
+local tools = require("tools")
+local io    = require("io")
+local os    = require("os")
+local args  = {...}
 
 
 -- Program structure
@@ -34,7 +35,8 @@ if args[1] then
 		if args[i] == '-v' or args[i] == '--version' then
 			io.write(
 			'Version: ' .. lib.VERSION .. '\n' ..
-			'Software crated by: Samuel de Oliveira (all rigths reserved)\n'
+			'Software crated by: Samuel de Oliveira (all rigths reserved)\n' ..
+         'You are using a ' .. tools.getSystem() .. ' System.\n'
 			)
 			os.exit()
 		end
