@@ -50,8 +50,10 @@ function library.createFile(fileName, Language)
 	end
 
 	-- Copy template files
-	io.write(fileName .. '\n')
+	local file = io.open(fileName, 'a')
+   io.output(file)
 	io.write(Language .. '\n')
+   io.close(file)
 end
 
 
