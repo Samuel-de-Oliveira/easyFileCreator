@@ -1,2 +1,4 @@
 .ccls-cache/
 __pycache__/
+*.dll
+*.exe
