@@ -11,10 +11,15 @@ local args  = {...}
 -- Program structure
 if args[1] then
 	for i, v in ipairs(args) do
-		-- List
+		-- List templates
 		if args[i] == '-l' or args == '--list' then
 			lib.list()
 			os.exit()
+		end
+
+      -- 
+      if args[i] == '-d' or args == '--directory' then
+			io.write('Not finished yet...\n')
 		end
 
 		-- Crate file
