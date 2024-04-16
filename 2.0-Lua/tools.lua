@@ -13,4 +13,16 @@ function tools.getSystem()
    end
 end
 
+function tools.Copy(Path, FileName)
+   -- Read
+   local rFile = io.open(Path, 'r')
+   strFile = infile:read('*a')
+   rFile:close()
+
+   -- Write
+   local wFile = io.open(FileName, 'w')
+   wfile:write(strFile)
+   wFile:close()
+end
+
 return tools

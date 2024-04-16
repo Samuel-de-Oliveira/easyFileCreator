@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
+## Shell script file for EFC.
 
 lua /usr/lib/efc/Main.lua $*

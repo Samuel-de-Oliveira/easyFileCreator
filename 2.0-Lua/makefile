@@ -16,3 +16,7 @@ install:
 unistall:
 	rm -rf $(LIB)$(TARGET)
 	rm -rf $(BIN)efc
+
+update:
+	$(MAKE) uninstall
+	$(MAKE) install
