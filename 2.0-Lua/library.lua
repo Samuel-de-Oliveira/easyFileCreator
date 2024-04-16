@@ -5,8 +5,9 @@ local tools = require("tools")
 
 -- Constants and variables
 local library = {
-	VERSION = '2.0',
-   PATH    = '~/.efc/'
+	VERSION    = '2.0',
+   CONFIGPATH = '~/.efc/',
+   LANGSPATH  = '/usr/lib/efc/langs/'
 }
 
 ---- Functions ----
@@ -42,6 +43,8 @@ end
 
 -- Create file template
 function library.createFile(fileName, Language)
+   
+
 	-- Error treatment
 	if not fileName or not Language then
 		io.write('There is missing some arguments...\n' ..
@@ -54,6 +57,14 @@ function library.createFile(fileName, Language)
    io.output(file)
 	io.write(Language .. '\n')
    io.close(file)
+   
+   tools.Copy(
+      -- Select language
+      library.LANGSPATH .. Language .. '/',
+
+      -- Write to filename
+      fileName
+   )
 end
 
 

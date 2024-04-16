@@ -17,10 +17,12 @@ if args[1] then
 			os.exit()
 		end
 
-      -- 
+
+      -- Create directory
       if args[i] == '-d' or args == '--directory' then
 			io.write('Not finished yet...\n')
 		end
+
 
 		-- Crate file
 		if args[i] == '-f' or args == '--file' then
@@ -30,11 +32,13 @@ if args[1] then
 			)
 		end
 
+
 		-- Help message
 		if args[i] == '-?' or args[i] == '--help' then
 			lib.help()
 			os.exit()
 		end
+
 
 		-- Version
 		if args[i] == '-v' or args[i] == '--version' then

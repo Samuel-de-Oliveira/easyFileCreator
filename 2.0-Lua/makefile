@@ -3,7 +3,7 @@ TARGET = efc/
 LIB    = /usr/lib/
 BIN    = /usr/bin/
 
-.PHONY: all install unistall
+.PHONY: all install unistall update
 
 all:
 	@echo "Installing..."
