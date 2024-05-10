@@ -3,22 +3,20 @@ TARGET = efc/
 LIB    = /usr/lib/
 BIN    = /usr/bin/
 
-.PHONY: all install unistall update
-
 all:
-	@echo "Installing..."
-	@mkdir $(LIB)$(TARGET)
-	@cp efc $(BIN)
-	@cp ./* $(LIB)$(TARGET)
+	echo "Installing..."
+	mkdir $(LIB)$(TARGET)
+	cp efc $(BIN)
+	cp ./* $(LIB)$(TARGET)
 
 install:
-	@$(MAKE)
+	$(MAKE)
 
 uninstall:
-	@echo "Uninstalling"
-	@rm -rf $(LIB)$(TARGET)
-	@rm -rf $(BIN)efc
+	echo "Uninstalling"
+	rm -rf $(LIB)$(TARGET)
+	rm -rf $(BIN)efc
 
 update:
-	@$(MAKE) uninstall
-	@$(MAKE) install
+	$(MAKE) uninstall
+	$(MAKE) install
