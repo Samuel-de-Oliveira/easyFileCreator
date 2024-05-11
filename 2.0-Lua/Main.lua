@@ -12,20 +12,20 @@ local args  = {...}
 if args[1] then
 	for i, v in ipairs(args) do
 		-- List templates
-		if args[i] == '-l' or args == '--list' then
+		if args[i] == '-l' or args[i] == '--list' then
 			lib.list()
 			os.exit()
 		end
 
 
       -- Create directory
-      if args[i] == '-d' or args == '--directory' then
+      if args[i] == '-d' or args[i] == '--directory' then
 			io.write('Not finished yet...\n')
 		end
 
 
 		-- Crate file
-		if args[i] == '-f' or args == '--file' then
+		if args[i] == '-f' or args[i] == '--file' then
 			lib.createFile(
 				args[i + 1],
 				args[i + 2]
