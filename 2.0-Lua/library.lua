@@ -7,7 +7,7 @@ local tools = require("tools")
 local library = {
 	VERSION    = '2.0',
    CONFIGPATH = '~/.efc/',
-   LANGSPATH  = '/usr/lib/efc/langs/'
+   EFCPATH  = '/usr/lib/efc/'
 }
 
 ---- Functions ----
@@ -44,7 +44,6 @@ end
 -- Create file template
 function library.createFile(fileName, Language)
    
-
 	-- Error treatment
 	if not fileName or not Language then
 		io.write('There is missing some arguments...\n' ..
@@ -52,18 +51,21 @@ function library.createFile(fileName, Language)
 		os.exit()
 	end
 
+   -- Verify if the file aready exists
+   if tools.fileExists(fileName .. '.lua') then
+      io.write("The file " .. fileName .. ".lua Alredy exists\n" ..
+               'Please digit "efc -?" for help.\n')
+      os.exit()
+   end
+
 	-- Copy template files
-	local file = io.open(fileName, 'a')
-   io.output(file)
-	io.write(Language .. '\n')
-   io.close(file)
-   
+   io.write(library.EFCPATH .. 'language/lua/file.lua') 
    tools.Copy(
       -- Select language
-      library.LANGSPATH .. Language .. '/',
+      library.EFCPATH .. 'languages/lua/file.lua',
 
       -- Write to filename
-      fileName
+      fileName .. '.lua'
    )
 end
 

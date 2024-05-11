@@ -1,6 +1,6 @@
 -- Lua version of EFC Test
 
--- Requires (To find the fuctions go to: 'library.lua')
+-- Requires (To find the main fuctions go to: 'library.lua')
 local lib   = require("library")
 local tools = require("tools")
 local io    = require("io")
@@ -34,7 +34,7 @@ if args[1] then
 
 
 		-- Help message
-		if args[i] == '-?' or args[i] == '--help' then
+		if args[i] == '-?' or args[i] == '--help' or args[i] == '-h' then
 			lib.help()
 			os.exit()
 		end

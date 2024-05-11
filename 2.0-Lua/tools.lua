@@ -18,13 +18,27 @@ end
 function tools.Copy(Path, FileName)
    -- Read
    local rFile = io.open(Path, 'r')
-   strFile = infile:read('*a')
+   strFile = rFile:read('*all')
    rFile:close()
 
    -- Write
    local wFile = io.open(FileName, 'w')
-   wfile:write(strFile)
+   wFile:write(strFile)
    wFile:close()
 end
+
+
+function fileExists(name)
+   local file = io.open(name, "r")
+
+   -- if the file have something (file is not nil)
+   if not file then
+      io.close(file)
+      return true
+   else
+      return false
+   end
+end
+
 
 return tools
