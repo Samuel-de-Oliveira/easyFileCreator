@@ -1,8 +1,19 @@
 -- Lua version of EFC Test
 
+--[[ EasyFileCreator lua version [[--
+
+  This is a Open Source software, this means
+  that you are free to copy, distribute, install
+  and change this source code by yourself, but you
+  need to follow th MIT License Guideless.
+
+  -- Online repository: https://github.com/Samuel-de-Oliveira/easyFileCreator
+
+--]]
+
 -- Requires (To find the main fuctions go to: 'library.lua')
-local lib   = require("library")
-local tools = require("tools")
+local lib   = require("usr/lib/efc/library")
+local tools = require("usr/lib/efc/tools")
 local io    = require("io")
 local os    = require("os")
 local args  = {...}
