@@ -52,15 +52,15 @@ function library.createFile(fileName, Language)
 		os.exit()
 	end
 
-   -- Get config.json consts
+   -- Get config.json variables
    local configFile = io.open(library.EFCPATH .. 'languages/' ..
                               Language .. "/config.json", "r")
-   print(configFile:read('*all'))
-   local extension  = json.decode(configFile:read("*all")).extension
-   local mainFile   = json.decode(configFile:read("*all")).file
+   local getConfig  = configFile:read('*all')
+   local extension  = json.decode(getConfig).extension
+   local mainFile   = json.decode(getConfig).file
    configFile:close()
 
-   -- Verify if the file aready exists
+   -- Verify if the file already exists
    if tools.fileExists(fileName .. extension) then
       io.write("The file " .. fileName .. ".lua Alredy exists\n" ..
                'Please digit "efc -?" for help.\n')
