@@ -1,7 +1,7 @@
-local io = require("io")
+local io = require('io')
 
 local library = {
-	string = "Hello, world!\n"
+	string = 'Hello, world!\n'
 }
 
 function library.showHello()

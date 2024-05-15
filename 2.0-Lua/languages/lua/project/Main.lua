@@ -1,4 +1,5 @@
-local lib = require("library")
-local io  = require("io")
+local lib  = require('library')
+local io   = require('io')
+local args = {...}
 
 lib.showHello()
