@@ -28,15 +28,15 @@ function tools.Copy(Path, FileName)
 end
 
 
-function fileExists(name)
-   local file = io.open(name, "r")
+function tools.fileExists(name)
+   file = io.open(name, "r")
 
    -- if the file have something (file is not nil)
    if not file then
+      return false
+   else
       io.close(file)
       return true
-   else
-      return false
    end
 end
 

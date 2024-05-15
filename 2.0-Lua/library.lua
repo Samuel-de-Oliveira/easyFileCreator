@@ -59,7 +59,6 @@ function library.createFile(fileName, Language)
    end
 
 	-- Copy template files
-   io.write(library.EFCPATH .. 'language/lua/file.lua') 
    tools.Copy(
       -- Select language
       library.EFCPATH .. 'languages/lua/file.lua',
