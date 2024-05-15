@@ -11,3 +11,10 @@ as an official stuff.
 
 If you are smart, I actualy hope you should be,
 you may install and test this version by yourself. 😎
+
+## Requires
+This version requires `lunajson` library, you can install it using luarocks with this code:
+
+```sh
+luarocks install lunajson
+```
