@@ -12,10 +12,11 @@
 --]]
 
 -- Requires (To find the main fuctions go to: 'library.lua')
-local lib   = require("usr/lib/efc/library")
-local tools = require("usr/lib/efc/tools")
+local lib   = require("efc_library")
+local tools = require("efc_library/tools")
 local io    = require("io")
 local os    = require("os")
+local json  = require("lunajson")
 local args  = {...}
 
 

@@ -1,7 +1,7 @@
 -- Requires
 local io    = require("io")
 local os    = require("os")
-local tools = require("tools")
+local tools = require("efc_library/tools")
 
 -- Constants and variables
 local library = {
