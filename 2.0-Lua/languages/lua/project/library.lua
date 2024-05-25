@@ -1,11 +1,12 @@
 local io = require('io')
 
 local library = {
-	string = 'Hello, world!\n'
+	message = 'Hello, world!\n',
+   version = '1.0'
 }
 
 function library.showHello()
-	io.write(library.string)
+	io.write(library.message)
 end
 
 return library
