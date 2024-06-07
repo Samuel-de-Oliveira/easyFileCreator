@@ -17,11 +17,11 @@ local library = {
 function library.help()
 	io.write(
 	'\tUsage: \"efc [command] [arguments]\"\n\n' ..
-	'-l or --list: Show the list of templates and exit.\n' ..
-   '-f or --file: Create a new file [efc -f "FileName" "Language"]\n' ..
+	'\27[32m-l or --list:\27[m Show the list of templates and exit.\n' ..
+   '\27[32m-f or --file:\27[m Create a new file [efc -f "FileName" "Language"]\n' ..
    '\n' ..
-	'-v or --version: Show version and exit.\n' ..
-	'-? or --version: Show this message and exit.\n'
+	'\27[32m-v or --version:\27[m Show version and exit.\n' ..
+	'\27[32m-? or --version:\27[m Show this message and exit.\n'
 	)
 end
 
@@ -47,8 +47,8 @@ function library.createFile(fileName, Language)
    
 	-- Error treatment
 	if not fileName or not Language then
-		io.write('There is missing some arguments...\n' ..
-               'Plase digit "efc -?" for help.\n')
+		io.write('\27[1;31mThere is missing some arguments...\27[m\n' ..
+               'Plase digit \27[44m"efc -?"\27[m for help.\n')
 		os.exit()
 	end
 
@@ -62,8 +62,8 @@ function library.createFile(fileName, Language)
 
    -- Verify if the file already exists
    if tools.fileExists(fileName .. extension) then
-      io.write("The file " .. fileName .. ".lua Alredy exists\n" ..
-               'Please digit "efc -?" for help.\n')
+      io.write("\27[1;31mThe file " .. fileName .. ".lua Alredy exists\27[m\n" ..
+               'Please digit \27[44m"efc -?"\27[m for help.\n')
       os.exit()
    end
    
