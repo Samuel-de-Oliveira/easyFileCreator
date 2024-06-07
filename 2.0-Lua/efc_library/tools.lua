@@ -1,3 +1,7 @@
+--[[
+   Tools for a easy management of functions
+--]]
+
 local package = require('package')
 
 local tools = {}

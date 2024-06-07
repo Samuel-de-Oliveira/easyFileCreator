@@ -9,7 +9,7 @@
 
   -- Online repository: https://github.com/Samuel-de-Oliveira/easyFileCreator
 
---]]
+-----------------------------------]]
 
 -- Requires (To find the main fuctions go to: 'library.lua')
 local lib   = require("efc_library")
@@ -31,8 +31,11 @@ if args[1] then
 
 
       -- Create directory
-      if args[i] == '-d' or args[i] == '--directory' then
-			io.write('Not finished yet...\n')
+      if args[i] == '-P' or args[i] == '--project' then
+         lib.createProject(
+            args[i + 1],
+            args[i + 2]
+         )
 		end
 
 

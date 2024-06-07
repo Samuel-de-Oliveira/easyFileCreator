@@ -1,3 +1,7 @@
+--[[
+   Library with all the functions of Main.lua
+--]]
+
 -- Requires
 local io    = require("io")
 local os    = require("os")
@@ -19,6 +23,7 @@ function library.help()
 	'\tUsage: \"efc [command] [arguments]\"\n\n' ..
 	'\27[32m-l or --list:\27[m Show the list of templates and exit.\n' ..
    '\27[32m-f or --file:\27[m Create a new file [efc -f "FileName" "Language"]\n' ..
+   '\27[32m-P or --project:\27[m Create a new project template [efc -P "ProjectName" "Language"]\n' ..
    '\n' ..
 	'\27[32m-v or --version:\27[m Show version and exit.\n' ..
 	'\27[32m-? or --version:\27[m Show this message and exit.\n'
@@ -28,7 +33,7 @@ end
 
 -- Show list
 function library.list()
-	io.write('List of templates:\n')
+	io.write('List of templates:\27[1;34m\n')
 
    -- Unix like systems
    if tools.getSystem() == "Unix" then
@@ -38,13 +43,12 @@ function library.list()
    elseif tools.getSystem() == "Windows" then
       os.execute('dir')
    end
-	io.write('\n') -- Break line
+	io.write('\27[m\n') -- Break line
 end
 
 
 -- Create file template
 function library.createFile(fileName, Language)
-   
 	-- Error treatment
 	if not fileName or not Language then
 		io.write('\27[1;31mThere is missing some arguments...\27[m\n' ..
@@ -75,6 +79,18 @@ function library.createFile(fileName, Language)
       -- Write to filename
       fileName .. extension
    )
+end
+
+
+function library.createProject(projectName, Language)
+   -- Error treatment
+	if not projectName or not Language then
+		io.write('\27[1;31mThere is missing some arguments...\27[m\n' ..
+               'Plase digit \27[44m"efc -?"\27[m for help.\n')
+		os.exit()
+	end
+
+   io.write('Not finished yet\n')
 end
 
 
