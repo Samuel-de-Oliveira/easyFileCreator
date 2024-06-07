@@ -2,7 +2,7 @@
 #define LIBRARY_HPP
 
 #include <iostream>
-#include <string>
+#include <string.h>
 
 std::string string {"Hello, world!"};
 
