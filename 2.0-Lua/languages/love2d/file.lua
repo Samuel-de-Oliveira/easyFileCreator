@@ -1,7 +1,9 @@
-library = {}
+library = {
+   message = 'Hello, world!'
+}
 
 function library.hello()
-   love.graphics.print('Hello, world!', 300, 400)
+   love.graphics.print(message, 300, 400)
 end
 
 return library

@@ -1,7 +1,7 @@
 local message = require('message')
 
-local posX = love.graphics.getWidth()
-local posY = love.graphics.getHeight()
+local posX     = love.graphics.getWidth()
+local posY     = love.graphics.getHeight()
 local Keyboard = love.keyboard
 
 function love.load()
