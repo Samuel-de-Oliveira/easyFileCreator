@@ -20,13 +20,15 @@ local library = {
 -- Help message
 function library.help()
 	io.write(
+   '\n' ..
 	'\tUsage: \"efc [command] [arguments]\"\n\n' ..
 	'\27[32m-l or --list:\27[m Show the list of templates and exit.\n' ..
    '\27[32m-f or --file:\27[m Create a new file [efc -f "FileName" "Language"]\n' ..
    '\27[32m-P or --project:\27[m Create a new project template [efc -P "ProjectName" "Language"]\n' ..
    '\n' ..
 	'\27[32m-v or --version:\27[m Show version and exit.\n' ..
-	'\27[32m-? or --version:\27[m Show this message and exit.\n'
+	'\27[32m-? or --version:\27[m Show this message and exit.\n' ..
+   '\n'
 	)
 end
 

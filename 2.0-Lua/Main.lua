@@ -8,6 +8,8 @@
   need to follow th MIT License Guideless.
 
   -- Online repository: https://github.com/Samuel-de-Oliveira/easyFileCreator
+  -- Created by: Samuel de Oliveira (Github: Samuel-de-Oliveira)
+  -- Contribuitors: None
 
 -----------------------------------]]
 
@@ -22,9 +24,13 @@ local args  = {...}
 
 -- Program structure
 if args[1] then
+   
+   local findArguments = 0
+
 	for i, v in ipairs(args) do
 		-- List templates
 		if args[i] == '-l' or args[i] == '--list' then
+         findArguments = findArguments + 1
 			lib.list()
 			os.exit()
 		end
@@ -32,6 +38,7 @@ if args[1] then
 
       -- Create directory
       if args[i] == '-P' or args[i] == '--project' then
+         findArguments = findArguments + 1
          lib.createProject(
             args[i + 1],
             args[i + 2]
@@ -41,6 +48,7 @@ if args[1] then
 
 		-- Crate file
 		if args[i] == '-f' or args[i] == '--file' then
+         findArguments = findArguments + 1
 			lib.createFile(
 				args[i + 1],
 				args[i + 2]
@@ -50,6 +58,7 @@ if args[1] then
 
 		-- Help message
 		if args[i] == '-?' or args[i] == '--help' or args[i] == '-h' then
+         findArguments = findArguments + 1
 			lib.help()
 			os.exit()
 		end
@@ -57,6 +66,7 @@ if args[1] then
 
 		-- Version
 		if args[i] == '-v' or args[i] == '--version' then
+         findArguments = findArguments + 1
 			io.write(
 			'Version: ' .. lib.VERSION .. '\n' ..
 			'Software crated by: Samuel de Oliveira (all rigths reserved)\n' ..
@@ -66,6 +76,13 @@ if args[1] then
 			os.exit()
 		end
 	end
+
+   if findArguments == 0 then
+      io.write('\27[1;31moops... maybe you digite a wrong argument!\27[m\n' ..
+               'Please digit \27[44m"efc -?"\27[m for help.\n'
+               )
+   end
+
 else
 	-- In case of no arguments
 	lib.help()
