@@ -77,9 +77,13 @@ if args[1] then
 		end
 	end
 
+   -- In case of a wrong argument
    if findArguments == 0 then
-      io.write('\27[1;31moops... maybe you digite a wrong argument!\27[m\n' ..
-               'Please digit \27[44m"efc -?"\27[m for help.\n'
+      tools.alert()
+      io.write('\n' ..
+               '\27[1;31mOh ouch... maybe you digite a wrong argument!\27[m\n' ..
+               'Please digit \27[44m"efc -?"\27[m for help.\n' ..
+               '\n'
                )
    end
 

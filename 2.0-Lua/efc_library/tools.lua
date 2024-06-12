@@ -45,4 +45,8 @@ function tools.fileExists(name)
 end
 
 
+function tools.alert()
+   io.write('\a')
+end
+
 return tools

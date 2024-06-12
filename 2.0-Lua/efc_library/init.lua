@@ -28,6 +28,9 @@ function library.help()
    '\n' ..
 	'\27[32m-v or --version:\27[m Show version and exit.\n' ..
 	'\27[32m-? or --version:\27[m Show this message and exit.\n' ..
+   '\n' ..
+   '\tFor any questions about EFC please check the software\'s repository:\n' ..
+   '\t\27[1mhttps://github.com/Samuel-de-Oliveira/easyFileCreator\27[m\n' ..
    '\n'
 	)
 end
@@ -39,7 +42,7 @@ function library.list()
 
    -- Unix like systems
    if tools.getSystem() == "Unix" then
-	   for file in io.popen('ls .'):lines() do
+	   for file in io.popen('ls ' .. library.EFCPATH .. 'languages'):lines() do
 		   io.write(file .. '  ')
 	   end
    elseif tools.getSystem() == "Windows" then
