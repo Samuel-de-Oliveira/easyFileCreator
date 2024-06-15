@@ -70,7 +70,7 @@ if args[1] then
 			io.write(
 			'Version: ' .. lib.VERSION .. '\n' ..
 			'Software crated by: Samuel de Oliveira (all rigths reserved)\n' ..
-         'You are using a ' .. tools.getSystem() .. ' System.\n' ..
+         'You are using a ' .. tools.getSystem() .. ' version of software.\n' ..
          'Project repository: https://github.com/Samuel-de-Oliveira/easyFileCreator\n'
 			)
 			os.exit()

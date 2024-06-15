@@ -8,12 +8,23 @@ local os    = require("os")
 local json  = require("lunajson")
 local tools = require("efc_library/tools")
 
--- Constants and variables
+---- Constants and variables ----
 local library = {
-	VERSION    = '2.0',
-   CONFIGPATH = '~/.efc/',
-   EFCPATH    = '/usr/lib/efc/'
+   VERSION = '2.0',
 }
+
+-- TODO: Finish all Windows paths
+if tools.getSystem() == 'Unix' then
+   local library = {
+      CONFIGPATH = '~/.efc/',
+      EFCPATH    = '/usr/lib/efc/',
+   }
+elseif tools.getSystem() == 'Windows' then
+   local library = {
+      CONFIGPATH = '.',
+      EFCPATH    = '.',
+   }
+end
 
 ---- Functions ----
 
