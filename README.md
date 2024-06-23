@@ -25,7 +25,9 @@ cd easyFileCreator
 ## Contribuition
 I'm accepting any issue or pull request for revision, so feel free to share your idea
 
-> The software need more languages and port to others systens than Linux (Need a Windows and MacOS version urgent)
+## It Runs with Lua or with Python?
+The functional version works with Python, but I'm creating a Beta version using Lua, well
+to see more about check [here](/2.0-Lua/)
 
 ## Commands
 Just type `efc -?` for the command list updated
