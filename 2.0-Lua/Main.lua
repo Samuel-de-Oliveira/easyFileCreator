@@ -68,10 +68,12 @@ if args[1] then
 		if args[i] == '-v' or args[i] == '--version' then
          findArguments = findArguments + 1
 			io.write(
-			'Version: ' .. lib.VERSION .. '\n' ..
+         '\n' ..
+			'\t\27[1mVersion: ' .. lib.VERSION .. '\27[m\n' ..
 			'Software crated by: Samuel de Oliveira (all rigths reserved)\n' ..
-         'You are using a ' .. tools.getSystem() .. ' version of software.\n' ..
-         'Project repository: https://github.com/Samuel-de-Oliveira/easyFileCreator\n'
+         'You are using a \27[33m' .. tools.getSystem() .. '\27[m version of software.\n' ..
+         'Project repository: https://github.com/Samuel-de-Oliveira/easyFileCreator\n' ..
+         '\n'
 			)
 			os.exit()
 		end
