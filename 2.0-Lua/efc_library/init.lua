@@ -15,14 +15,14 @@ local library = {
 
 -- TODO: Finish all Windows paths
 if tools.getSystem() == 'Unix' then
-   local library = {
+   library = {
       CONFIGPATH = '~/.efc/',
       EFCPATH    = '/usr/lib/efc/',
    }
 elseif tools.getSystem() == 'Windows' then
-   local library = {
-      CONFIGPATH = '.',
-      EFCPATH    = '.',
+   library = {
+      CONFIGPATH = '%appdata%',
+      EFCPATH    = '%appdata%',
    }
 end
 
@@ -54,10 +54,13 @@ function library.list()
    -- Unix like systems
    if tools.getSystem() == "Unix" then
 	   for file in io.popen('ls ' .. library.EFCPATH .. 'languages'):lines() do
-		   io.write(file .. '  ')
+         io.write(file .. '  ')
 	   end
    elseif tools.getSystem() == "Windows" then
-      os.execute('dir')
+   -- TODO: String got strange, need a fix
+      for file in io.popen('dir ' .. library.EFCPATH):lines() do
+         io.write(file .. '  ')
+      end
    end
 	io.write('\27[m\n') -- Break line
 end
