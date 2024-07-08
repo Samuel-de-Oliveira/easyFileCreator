@@ -15,15 +15,11 @@ local library = {
 
 -- TODO: Finish all Windows paths
 if tools.getSystem() == 'Unix' then
-   library = {
-      CONFIGPATH = '~/.efc/',
-      EFCPATH    = '/usr/lib/efc/',
-   }
+   library.CONFIGPATH = '~/.efc/'
+   library.EFCPATH    = '/usr/lib/efc/'
 elseif tools.getSystem() == 'Windows' then
-   library = {
-      CONFIGPATH = '%appdata%',
-      EFCPATH    = '%appdata%',
-   }
+   library.CONFIGPATH = '%appdata%'
+   library.EFCPATH    = '%appdata%'
 end
 
 ---- Functions ----
@@ -38,7 +34,7 @@ function library.help()
    '\27[32m-P or --project:\27[m Create a new project template [efc -P "ProjectName" "Language"]\n' ..
    '\n' ..
 	'\27[32m-v or --version:\27[m Show version and exit.\n' ..
-	'\27[32m-? or --version:\27[m Show this message and exit.\n' ..
+	'\27[32m-?, -h or --help:\27[m Show this message and exit.\n' ..
    '\n' ..
    '\tFor any questions about EFC please check the software\'s repository:\n' ..
    '\t\27[1mhttps://github.com/Samuel-de-Oliveira/easyFileCreator\27[m\n' ..
@@ -75,29 +71,36 @@ function library.createFile(fileName, Language)
 		os.exit()
 	end
 
-   -- Get config.json variables
-   local configFile = io.open(library.EFCPATH .. 'languages/' ..
-                              Language .. "/config.json", "r")
-   local getConfig  = configFile:read('*all')
-   local extension  = json.decode(getConfig).extension
-   local mainFile   = json.decode(getConfig).file
-   configFile:close()
+   local sucess, errorMsg = pcall(function()
+      -- Get config.json variables
+      local configFile = io.open(library.EFCPATH .. 'languages/' ..
+                                 Language .. "/config.json", "r")
+      local getConfig  = configFile:read('*all')
+      local extension  = json.decode(getConfig).extension
+      local mainFile   = json.decode(getConfig).file
+      configFile:close()
 
-   -- Verify if the file already exists
-   if tools.fileExists(fileName .. extension) then
-      io.write("\27[1;31mThe file " .. fileName .. ".lua Alredy exists\27[m\n" ..
-               'Please digit \27[44m"efc -?"\27[m for help.\n')
-      os.exit()
-   end
+      -- Verify if the file already exists
+      if tools.fileExists(fileName .. extension) then
+         io.write("\27[1;31mThe file " .. fileName .. ".lua Alredy exists\27[m\n" ..
+                  'Please digit \27[44m"efc -?"\27[m for help.\n')
+         os.exit()
+      end
    
-   -- Copy template files
-   tools.Copy(
-      -- Select language
-      library.EFCPATH .. 'languages/' .. Language .. '/' .. mainFile,
+      -- Copy template files
+      tools.Copy(
+         -- Select language
+         library.EFCPATH .. 'languages/' .. Language .. '/' .. mainFile,
 
-      -- Write to filename
-      fileName .. extension
-   )
+         -- Write to filename
+         fileName .. extension
+      )
+   end)
+
+   if not sucess then
+      io.write('\27[1;31mThis Language doesn\'t exist in your list of templates\27[m\n' ..
+               'Please digit \27[44m"efc -l"\27[m to got the templates list.\n')
+   end
 end
 
 
@@ -110,7 +113,13 @@ function library.createProject(projectName, Language)
 		os.exit()
 	end
 
-   io.write('Not finished yet\n')
+   local sucess, errorMsg = pcall(function()
+      io.write('This fature is not finished yet\n')
+   end)
+
+   if not sucess then
+      print('Failed!')
+   end
 end
 
 
