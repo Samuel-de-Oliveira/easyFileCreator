@@ -66,6 +66,7 @@ end
 function library.createFile(fileName, Language)
 	-- Error treatment
 	if not fileName or not Language then
+      tools.alert()
 		io.write('\27[1;31mThere is missing some arguments...\27[m\n' ..
                'Plase digit \27[44m"efc -?"\27[m for help.\n')
 		os.exit()
@@ -98,6 +99,7 @@ function library.createFile(fileName, Language)
    end)
 
    if not sucess then
+      tools.alert()
       io.write('\27[1;31mThis Language doesn\'t exist in your list of templates\27[m\n' ..
                'Please digit \27[44m"efc -l"\27[m to got the templates list.\n')
    end
@@ -108,6 +110,7 @@ function library.createProject(projectName, Language)
    -- Error treatment
    -- TODO: Try to add "pcall" function here
 	if not projectName or not Language then
+      tools.alert()
 		io.write('\27[1;31mThere is missing some arguments...\27[m\n' ..
                'Plase digit \27[44m"efc -?"\27[m for help.\n')
 		os.exit()
@@ -118,6 +121,7 @@ function library.createProject(projectName, Language)
    end)
 
    if not sucess then
+      tools.alert()
       print('Failed!')
    end
 end

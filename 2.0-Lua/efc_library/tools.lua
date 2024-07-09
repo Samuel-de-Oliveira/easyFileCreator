@@ -21,14 +21,24 @@ end
 
 function tools.Copy(Path, FileName)
    -- Read
-   local rFile = io.open(Path, 'r')
-   strFile = rFile:read('*all')
-   rFile:close()
+   local readSucess, readError = pcall(function()
+      local rFile = io.open(Path, 'r')
+      strFile = rFile:read('*all')
+      rFile:close()
+   end)
 
    -- Write
-   local wFile = io.open(FileName, 'w')
-   wFile:write(strFile)
-   wFile:close()
+   if readSucess then
+      local wFile = io.open(FileName, 'w')
+      wFile:write(strFile)
+      wFile:close()
+   else
+      tools.alert()
+      io.write("\27[1;31mThe software couldn't open " .. FileName .. " beacause of" ..
+               readError .. "\27[m\n" ..
+               'Please digit \27[44m"efc -?"\27[m for help.\n')
+      os.exit()
+    end
 end
 
 

@@ -7,6 +7,8 @@
   and change this source code by yourself, but you
   need to follow th MIT License Guideless.
 
+  Version: 1.0.2 Unstable;
+
   -- Online repository: https://github.com/Samuel-de-Oliveira/easyFileCreator
   -- Created by: Samuel de Oliveira (Github: Samuel-de-Oliveira)
   -- Contribuitors: None
@@ -79,11 +81,12 @@ if args[1] then
 		end
 	end
 
-   -- In case of a wrong argument
+   -- In case of a wrong argument or a argument thats not
+   -- on the list of arguments.
    if findArguments == 0 then
       tools.alert()
       io.write('\n' ..
-               '\27[1;31mOh ouch... maybe you digite a wrong argument!\27[m\n' ..
+               '\27[1;31mOh ouch... maybe you digited any wrong argument!\27[m\n' ..
                'Please digit \27[44m"efc -?"\27[m for help.\n' ..
                '\n'
                )
