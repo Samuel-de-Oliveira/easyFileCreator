@@ -2,4 +2,6 @@ local lib  = require('library')
 local io   = require('io')
 local args = {...}
 
-lib.showHello()
+hello = lib:new('Hello, world!')
+
+hello:PrintMessage()
