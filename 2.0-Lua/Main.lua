@@ -6,16 +6,21 @@
   that you are free to copy, distribute, install
   and change this source code by yourself, but you
   need to follow th MIT License Guideless.
+  If you would like to contribute to the code, you
+  should leave a issue or pull request in the online
+  repository on Github.
 
   Version: 1.0.2 Unstable;
 
   -- Online repository: https://github.com/Samuel-de-Oliveira/easyFileCreator
   -- Created by: Samuel de Oliveira (Github: Samuel-de-Oliveira)
+  -- Open Source License: MIT
   -- Contribuitors: None
 
 -----------------------------------]]
 
--- Requires (To find the main fuctions go to: 'library.lua')
+-- Requires (To find all the fuctions you should
+-- open 'library.lua' file).
 local lib   = require("efc_library")
 local tools = require("efc_library/tools")
 local io    = require("io")
