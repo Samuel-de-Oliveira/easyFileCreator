@@ -118,11 +118,17 @@ function library.createProject(projectName, Language)
 
    local sucess, errorMsg = pcall(function()
       io.write('This fature is not finished yet\n')
+      if tools.getSystem() == "Unix" then
+         local files = {}
+         for file in io.popen("ls " .. library.EFCPATH .. "languages/" .. Language .. "/project/"):lines() do
+            io.write(file .. '\n')
+         end
+      end
    end)
 
    if not sucess then
       tools.alert()
-      print('Failed!')
+      print('This lauguage does not exist!')
    end
 end
 
