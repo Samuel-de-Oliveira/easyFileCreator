@@ -108,22 +108,16 @@ end
 
 function library.createProject(projectName, Language)
    -- Error treatment
-   -- TODO: Try to add "pcall" function here
 	if not projectName or not Language then
-      tools.alert()
+    tools.alert()
 		io.write('\27[1;31mThere is missing some arguments...\27[m\n' ..
                'Plase digit \27[44m"efc -?"\27[m for help.\n')
 		os.exit()
 	end
 
    local sucess, errorMsg = pcall(function()
-      io.write('This fature is not finished yet\n')
-      if tools.getSystem() == "Unix" then
-         local files = {}
-         for file in io.popen("ls " .. library.EFCPATH .. "languages/" .. Language .. "/project/"):lines() do
-            io.write(file .. '\n')
-         end
-      end
+      tools.CopyFolder(library.EFCPATH .. 'languages/' .. Language .. '/project',
+                       projectName)
    end)
 
    if not sucess then

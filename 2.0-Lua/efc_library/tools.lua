@@ -21,6 +21,7 @@ function tools.getSystem()
 end
 
 
+-- Copy file function
 function tools.Copy(Path, FileName)
    -- Read
    local readSucess, readError = pcall(function()
@@ -43,26 +44,31 @@ function tools.Copy(Path, FileName)
     end
 end
 
+
+-- Copy folder function
 function tools.CopyFolder(Path, folderName)
    if tools.getSystem() == 'Unix' then
-      local FolderCreated,  redError = pcall(function()
-         os.execute('mkdir -p ' .. folderName)
+      local FolderCreated, readError = pcall(function()
+         os.execute('cp -rf ' .. Path ..
+                    ' ' .. folderName)
       end)
 
       if FolderCreated then
-         os.execute('cp -r ' .. Path .. '/* ' .. folderName)
+        tools.alert()
       else
          tools.alert()
          io.write("\27[1;31mThe software couldn't open " .. FileName .. " beacause of" ..
                readError .. "\27[m\n" ..
                'Please digit \27[44m"efc -?"\27[m for help.\n')
          os.exit()
-      else
-         io.write('This feature doesn\'t work yet')
       end
+   else
+      io.write('This feature doesn\'t work on Windows yet')
    end
 end
 
+
+-- Verify the existence of files
 function tools.fileExists(name)
    file = io.open(name, "r")
 
@@ -76,8 +82,25 @@ function tools.fileExists(name)
 end
 
 
+-- Verify the existence of folders
+function tools.folderExists(folder)
+  local exists, readError = pcall(function()
+    os.execute('cd ' .. folder)
+    os.execute('cd ..')
+  end)
+
+  if exists then
+    return true
+  else
+    return false
+  end
+end
+
+
+-- System alert
 function tools.alert()
    io.write('\a')
 end
+
 
 return tools
