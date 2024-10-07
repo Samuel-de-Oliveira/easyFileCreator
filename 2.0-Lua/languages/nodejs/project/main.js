@@ -1,1 +1,3 @@
-console.log('Hello, world!');
+const library = require('./library');
+
+library.message("hello, world!");
