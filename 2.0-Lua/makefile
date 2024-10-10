@@ -19,3 +19,7 @@ uninstall:
 update:
 	$(MAKE) uninstall
 	$(MAKE) install
+
+build_test:
+	srlua/glue srlua/srlua Main.lua efc.out
+	chmod a+rwx efc.out
