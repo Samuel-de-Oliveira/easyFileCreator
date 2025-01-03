@@ -11,12 +11,18 @@ local tools = {}
 
 -- Function to get operating system of user
 function tools.getSystem()
-   local pathSeparator = package.config:sub(1, 1)
-
-   if pathSeparator == '/' then
-      return 'Unix'
+   local Success, readError = pcall(function()
+      local pathSeparator = package.config:sub(1, 1)
+   end)
+   if Success then
+      if pathSeparator == '/' then
+         return 'Unix'
+      else
+         return 'Windows'
+      end
    else
-      return 'Windows'
+      io.write('\027[1;31mAn internal error has happened, Please report this to developer!\027[m')
+      os.exit()
    end
 end
 
@@ -24,14 +30,14 @@ end
 -- Copy file function
 function tools.Copy(Path, FileName)
    -- Read
-   local readSucess, readError = pcall(function()
+   local readSuccess, readError = pcall(function()
       local rFile = io.open(Path, 'r')
       strFile = rFile:read('*all')
       rFile:close()
    end)
 
    -- Write
-   if readSucess then
+   if readSuccess then
       local wFile = io.open(FileName, 'w')
       wFile:write(strFile)
       wFile:close()
