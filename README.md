@@ -1,7 +1,8 @@
 # Easy File Creator (EFC)
 EFC is a CLI application that helps create a template file of any programing language.
 
-The software is easy to use, for example typing `efc file example python` in your terminal or prompt you will create a file named `example.py`.
+The software is easy to use, for example typing `efc file example python` in your console you will create a file named `example.py` or better than this
+typing `efc project example python` you will create a Python project with a `Main.py` and others things file inside.
 
 ## How to install?
 
