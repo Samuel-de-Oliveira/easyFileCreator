@@ -4,8 +4,8 @@
 }
 
 body {
-  font-family: "Arial", "sans-serif";
-  font-size: 16pt;
-  font-style: normal;
+  font-family: "Arial", "sans-serif", "Times";
+  font-size:   16pt;
+  font-style:  normal;
   color: black;
 }
