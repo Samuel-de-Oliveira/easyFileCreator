@@ -1,6 +1,6 @@
 FILE   = Main.cpp
 CXX    = g++
-TARGET = a.exe
+TARGET = a.out
 
 all:
 	$(CXX) $(FILE) -o $(TARGET)
