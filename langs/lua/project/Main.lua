@@ -1,4 +1,7 @@
-local lib = require("library")
-local io  = require("io")
+local lib  = require('library')
+local io   = require('io')
+local args = {...}
 
-lib.show()
+hello = lib:new('Hello, world!')
+
+hello:PrintMessage()

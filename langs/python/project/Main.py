@@ -2,7 +2,7 @@ import os
 import sys
 
 from library import hello
-world = hello()
+Hello = hello('Hello, world!')
 
 if __name__ == "__main__":
-    world.show()
+    Hello.show()

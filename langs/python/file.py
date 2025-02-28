@@ -1,5 +1,6 @@
 import os
 import sys
 
-if __name__ == "__name__":
-	print('Hello, world!')
+if __name__ == '__main__':
+	Hello: str = 'Hello, world!'
+	print(Hello)
