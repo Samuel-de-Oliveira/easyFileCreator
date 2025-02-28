@@ -16,7 +16,7 @@ import sys
 
 # All functions is in lib/__init__.py file
 from lib import *
-from lib import __version__
+from lib import __version__, __author__
 
 # If it hasn't no arguments
 if len(sys.argv) <= 1: 
@@ -39,7 +39,7 @@ if __name__ == "__main__":
         # Show version info
         elif sys.argv[1] in ("version", "-v"):
             print(f'Version: \033[1;32m{__version__}\033[m\n'
-                   'This project is created by Samuel de Oliveira (all right reserved)\n'
+                  f'This project is created by {__author__} (all right reserved)\n'
                    'Visit the project\'s repository: \033[34mhttps://github.com/Samuel-de-Oliveira/easyFileCreator.\033[m')
 
         # In case of user digit someting wrong

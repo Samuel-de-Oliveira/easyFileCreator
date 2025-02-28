@@ -5,20 +5,19 @@ import shutil
 import json
 
 # Variable of version
-__version__ = '1.0.1'
+__version__: str = '1.0.2'
+__author__:  str = 'Samuel de Oliveira'
 
 ## Define the paths of software in each OS.
 # Linux
 if os.name in ("linux", "posix"):
-    programPath = '/usr/share/efc/'
-    configPath  = f'/home/{os.getlogin()}/.efc/'
-
-
+    programPath: str = '/usr/share/efc/'
+    configPath:  str = f'/home/{os.getlogin()}/.efc/'
 # Windows
 elif os.name in ("nt", "dos"):
     # TODO: rework this in the windows OS
-    programPath = 'C:\\system32\\efc'
-    configPath  = 'will be there...'
+    programPath: str = 'C:\\system32\\efc'
+    configPath:  str = 'will be there...'
 
     # For while it doesn't work for Windows yet :/
     print('This software doesn\'t work for Windows yet')
@@ -46,10 +45,10 @@ def helpMessage():
 
 
 # Create a file
-def createFile(fileName, Language):
+def createFile(fileName: str, Language: str):
     # Open config file of Template
     with open(f'{configPath}/langs/{Language}/config.json', 'r') as file:
-        config = json.loads(file.read())
+        config: dict = json.loads(file.read())
 
     # And then copy the template file and rename to name you've choosed
     try:
@@ -69,10 +68,10 @@ def createFile(fileName, Language):
 
 
 # Create a project
-def createProject(projectName, Language):
+def createProject(projectName: str, Language: str):
     # Open config file of Template
     with open(f'{configPath}/langs/{Language}/config.json', 'r') as file:
-        config = json.loads(file.read())
+        config: dict = json.loads(file.read())
 
     # Verify if the template have a project
     if config['project']:
@@ -91,7 +90,7 @@ def createProject(projectName, Language):
     else: print('there\'s no projects for this language...')
 
 # Append template
-def appendTemplate(Dir):
+def appendTemplate(Dir: str):
     # FIXME: The software cant append any template for any reason, need fix this urgent.
     try:
         if os.path.exists(f'{Dir}/config.json'):
@@ -107,7 +106,7 @@ def appendTemplate(Dir):
 
 def showList():
     # Print all templates
-    langsList = os.listdir(f"{configPath}/langs/")
+    langsList: list = os.listdir(f"{configPath}/langs/")
     print("Your language templates:")
     for lang in langsList:
         print(f'\033[1m{lang}\033[m', end='  ')
@@ -117,7 +116,7 @@ def showList():
 
 
 # Remove template
-def removeTemplate(Language):
+def removeTemplate(Language: str):
     try: shutil.rmtree(f"{configPath}/langs/{Language}")
     except FileNotFoundError: print('This template doesn\'t exist!')
     except Exception as Except:
