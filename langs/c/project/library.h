@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-char string[12] = "Hello world!";
+char string[15] = "Hello, world!";
 
 void hello( void ) {
 	printf("%s\n", string);
