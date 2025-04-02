@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+# Linux installer
 
 if [ $USER == "root" ]; then
 	echo "No root!"
-	exit
+	exit 1
 fi
 
 clear

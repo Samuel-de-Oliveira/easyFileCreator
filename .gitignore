@@ -1,7 +1,8 @@
 .ccls-cache/
 __pycache__/
-2.0-Lua/srlua/
 *.dll
 *.exe
 *.out
-lunajson*
+*.bin
+Scripts/
+lib/site-packages/

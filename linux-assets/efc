@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# Executer for Linux systems
 python /usr/share/efc/Main.py $*

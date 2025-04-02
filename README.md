@@ -24,11 +24,10 @@ cd easyFileCreator
 ```
 
 ## Contribuition
-I'm accepting any issue or pull request for revision, so feel free to share your idea
+I'm accepting any issue or pull request for revision, so feel free to share your idea with us.
 
-## It Runs with Lua or with Python?
-The functional version works with Python, but I'm creating a Beta version using Lua, well
-to see more about check [here](/2.0-Lua/)
+- [issues](https://github.com/Samuel-de-Oliveira/easyFileCreator/issues)
+- [Pull requests](https://github.com/Samuel-de-Oliveira/easyFileCreator/pulls)
 
 ## Commands
 Just type `efc -?` for the command list updated
