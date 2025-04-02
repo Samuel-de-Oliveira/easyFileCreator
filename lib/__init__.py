@@ -16,8 +16,9 @@ if os.name in ("linux", "posix"):
 # Windows
 elif os.name in ("nt", "dos"):
     # TODO: rework this in the windows OS
-    programPath: str = 'C:\\system32\\efc'
-    configPath:  str = 'will be there...'
+    programPath: str = f'C:\\Users\\{os.getlogin()}\\AppData\\Roaming\\efc\\'
+    configPath:  str = programPath
+    print(programPath)
 
     # For while it doesn't work for Windows yet :/
     print('This software doesn\'t work for Windows yet')
