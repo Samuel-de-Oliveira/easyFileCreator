@@ -1,0 +1,19 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node --watch server.js"
+  },
+  "keywords": [],
+  "author": "You",
+  "license": "UNLICENSED",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.1",
+    "hbs": "^4.2.0"
+  }
+}

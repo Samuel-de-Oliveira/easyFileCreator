@@ -6,3 +6,5 @@ __pycache__/
 *.bin
 Scripts/
 lib/site-packages/
+node_modules/
+package-lock.json
