@@ -21,7 +21,7 @@ from lib import __version__, __author__
 # If it hasn't no arguments
 if len(sys.argv) <= 1:
     helpMessage()
-    exit()
+    sys.exit()
 
 
 ## Main code ##

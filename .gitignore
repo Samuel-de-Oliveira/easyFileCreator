@@ -8,3 +8,6 @@ Scripts/
 lib/site-packages/
 node_modules/
 package-lock.json
+main.spec
+build/
+dist/

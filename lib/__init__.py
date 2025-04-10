@@ -31,7 +31,7 @@ elif os.name in ('nt', 'dos'):
 
     # For while it doesn't work for Windows yet :/
     print("This software doesn't work for Windows yet")
-    exit()
+    #sys.exit()
 
 
 class Config:
